@@ -5,7 +5,8 @@ print("Program for calculating the diameters of pipelines")
 con = "Y"
 while con == "Y":
 
-    c = input("What pipeline (Suction/Pressure) and for what medium (Biogas/Wastewater/Sludge) would you like to calculate (e.g. SB => suction pipeline for biogas)? ")
+    c = input("What pipeline (Suction/Pressure) and for what medium (Biogas/Wastewater/Sludge) would you like to "
+              "calculate (e.g. SB => suction pipeline for biogas)? ")
 
     def v(v1, v2):
         global con
@@ -19,11 +20,11 @@ while con == "Y":
             dl = []
             vl = []
             dn1 = [25, 50, 80, 100, 125, 150]
-            dn2 = list(range(150,1000,50))
+            dn2 = list(range(150, 1000, 50))
             dn = dn1 + dn2
 
             for d in dn:
-                A = float(((d/2000) ** 2 * math.pi))
+                A = float(((d / 2000) ** 2 * math.pi))
                 V = round((q / A / 3600), 2)
                 if V >= v1 and V <= v2:
                     vl.append(V)
@@ -34,8 +35,9 @@ while con == "Y":
                 con = input("Would like to do a new calculation? [Y/N] ")
 
             else:
-                print("Suggested DN(s):", dl,"mm. The calculated velocity(s) for the proposed DN(s) is (are) as follows:", vl, "m/s.")
-                print("Recommended value: {:.2f}-{:.2f} m/s.".format(v1,v2))
+                print("Suggested DN(s):", dl, "mm. The calculated velocity(s) for the proposed DN(s) is (are) as "
+                                              "follows:", vl, "m/s.")
+                print("Recommended value: {:.2f}-{:.2f} m/s.".format(v1, v2))
                 con = input("Would like to do a new calculation? [Y/N] ")
 
     if c == "SB" or c == "PB":
@@ -60,9 +62,3 @@ while con == "Y":
 
     else:
         con = input("Entered medium is incorrect.\nWould like to do a new calculation? [Y/N] ")
-
-
-
-
-
-
