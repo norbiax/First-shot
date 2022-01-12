@@ -1,4 +1,6 @@
 from abc import abstractmethod, ABC
+
+
 class BMW(ABC):
 
     def __init__(self, make, model, year):
@@ -18,17 +20,18 @@ class BMW(ABC):
     def drive(self):
         pass
 
+
 class ThreeSeries(BMW):
 
-    def __init__(self, cruiseControlEnabled, make, model, year):
+    def __init__(self, cruise_control_enabled, make, model, year):
         BMW.__init__(self, make, model, year)
-        self.cruiseControlEnabled = cruiseControlEnabled
+        self.cruise_control_enabled = cruise_control_enabled
 
     def display(self):
-        print(self.cruiseControlEnabled)
+        print(self.cruise_control_enabled)
 
     def drive(self):
-        print("ThreeSeries is being driven")
+        print("Three Series is being driven")
 
     def start(self):
         super().start()
@@ -38,14 +41,15 @@ class ThreeSeries(BMW):
         super().stop()
         print("Stop button")
 
+
 class FiveSeries(BMW):
 
-    def __init__(self, parkingAssistEnabled, make, model, year):
+    def __init__(self, parking_assist_enabled, make, model, year):
         BMW.__init__(self, make, model, year)
-        self.parkingAssistEnabled = parkingAssistEnabled
+        self.parking_assist_enabled = parking_assist_enabled
 
     def drive(self):
-        print("FiveeSeries is being driven")
+        print("Five Series is being driven")
 
     def start(self):
         super().start()
@@ -55,14 +59,28 @@ class FiveSeries(BMW):
         super().stop()
         print("Remote stop")
 
-threeseries = ThreeSeries(True, "BMW", "328i", "2018")
-print(threeseries.cruiseControlEnabled)
-print(threeseries.make)
-print(threeseries.model)
-print(threeseries.year)
 
-threeseries.start()
-threeseries.stop()
-threeseries.display()
+def main():
+    three_series = ThreeSeries(True, "BMW", "328i", "2018")
+    print(three_series.cruise_control_enabled)
+    print(three_series.make)
+    print(three_series.model)
+    print(three_series.year)
 
-fiveSeries = FiveSeries(True, "BMW", "328i", "2018")
+    three_series.start()
+    three_series.stop()
+    three_series.display()
+
+    five_series = FiveSeries(True, "BMW", "520d", "2021")
+    print(five_series.parking_assist_enabled)
+    print(five_series.make)
+    print(five_series.model)
+    print(five_series.year)
+
+    five_series.start()
+    five_series.stop()
+    five_series.drive()
+
+
+if __name__ == "__main__":
+    main()
